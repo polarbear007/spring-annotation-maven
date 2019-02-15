@@ -1,0 +1,46 @@
+<c3p0-config>
+  <!-- 使用默认的配置读取连接池对象，默认是开发环境下，连接的是 ssm_crud 数据库 -->
+  <default-config>
+	  <!--  连接参数 -->
+		<property name="driverClass">com.mysql.cj.jdbc.Driver</property>
+		<property name="jdbcUrl">jdbc:mysql://localhost:3306/ssm_crud?serverTimezone=Asia/Shanghai&amp;useSSL=false</property>
+		<property name="user">root</property>
+		<property name="password">root</property>
+		
+		<!-- 连接池参数 -->
+		<property name="initialPoolSize">5</property>
+		<property name="maxPoolSize">8</property>
+		<property name="checkoutTimeout">3000</property>
+  	
+  </default-config>
+
+<!-- 测试环境下，连接的是 test 数据库 -->
+  <named-config name="test"> 
+		<!--  连接参数 -->
+		<property name="driverClass">com.mysql.cj.jdbc.Driver</property>
+		<property name="jdbcUrl">jdbc:mysql://localhost:3306/test?serverTimezone=Asia/Shanghai&amp;useSSL=false</property>
+		<property name="user">root</property>
+		<property name="password">root</property>
+		
+		<!-- 连接池参数 -->
+		<property name="initialPoolSize">5</property>
+		<property name="maxPoolSize">8</property>
+		<property name="checkoutTimeout">3000</property>
+  	
+  </named-config>
+  <!-- 生产环境下，连接的是 ssm_shiro 数据库 -->
+  <named-config name="produce"> 
+		<!--  连接参数 -->
+		<property name="driverClass">com.mysql.cj.jdbc.Driver</property>
+		<property name="jdbcUrl">jdbc:mysql://localhost:3306/ssm_shiro?serverTimezone=Asia/Shanghai&amp;useSSL=false</property>
+		<property name="user">root</property>
+		<property name="password">root</property>
+		
+		<!-- 连接池参数 -->
+		<property name="initialPoolSize">5</property>
+		<property name="maxPoolSize">8</property>
+		<property name="checkoutTimeout">3000</property>
+  	
+  </named-config>
+  
+</c3p0-config>

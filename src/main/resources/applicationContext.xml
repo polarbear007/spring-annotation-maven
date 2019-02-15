@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+
+	<bean id="student1" class="cn.itcast.entity.Student">
+		<property name="name" value="eric"/>
+		<property name="age" value="12"/>
+	</bean>
+	
+	<bean id="student2" class="cn.itcast.entity.Student">
+		<constructor-arg name="name" value="rose"/>
+		<constructor-arg name="age" value="12"/>
+	</bean>
+	
+	<bean id="teacher" class="cn.itcast.entity.Teacher" scope="prototype" lazy-init="true">
+		<property name="name" value="大明"/>
+		<property name="age" value="20"/>
+	</bean>
+	
+	<bean id="teacher2" class="cn.itcast.entity.Teacher" scope="singleton" lazy-init="true">
+		<property name="name" value="大明2"/>
+		<property name="age" value="30"/>
+	</bean>
+	
+	<context:component-scan base-package="cn.itcast.*" >
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+	</context:component-scan>
+
+</beans>
